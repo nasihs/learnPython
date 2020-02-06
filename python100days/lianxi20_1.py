@@ -10,6 +10,10 @@ class Screen(object):
 
     @width.setter
     def width(self, value):
+        if not isinstance(value, int):
+            raise ValueError('width must be an integer')
+        if value < 0 or value > 2000:
+            raise ValueError('width must between 0~2000')
         self._width = value
 
     @property
@@ -27,8 +31,8 @@ class Screen(object):
 
 def main():
     s1 = Screen()
-    s1.width = float(input('??width:'))
-    s1.height = float(input('??height:'))
+    s1.width = 1920
+    s1.height = 1080
     print(s1.width)
     print(s1.height)
     print(s1.resolution)
