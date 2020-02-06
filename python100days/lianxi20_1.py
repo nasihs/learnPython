@@ -1,5 +1,6 @@
 """
-??@property???
+@property装饰器
+加入ValueError检测
 """
 
 
