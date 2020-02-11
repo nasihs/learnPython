@@ -1,4 +1,5 @@
 """
+工资结算系统
 某公司有三种类型的员工 分别是部门经理、程序员和销售员
 需要设计一个工资结算系统 根据提供的员工信息来计算月薪
 部门经理的月薪是每月固定15000元
@@ -10,7 +11,6 @@ from abc import ABCMeta, abstractmethod
 
 class Employee(object, metaclass=ABCMeta):
     """员工"""
-
     def __init__(self, name):
         """
         初始化方法
@@ -35,14 +35,12 @@ class Employee(object, metaclass=ABCMeta):
 
 class Manager(Employee):
     """部门经理"""
-
     def get_salary(self):
         return 15000.0
 
 
 class Programmer(Employee):
     """程序员"""
-
     def __init__(self, name, working_hour=0):
         super().__init__(name)
         self._working_hour = working_hour
@@ -61,7 +59,6 @@ class Programmer(Employee):
 
 class Salesman(Employee):
     """销售员"""
-
     def __init__(self, name, sales=0):
         super().__init__(name)
         self._sales = sales
@@ -80,9 +77,12 @@ class Salesman(Employee):
 
 def main():
     emps = [
-        Manager('刘备'), Programmer('诸葛亮'),
-        Manager('曹操'), Salesman('荀彧'),
-        Salesman('吕布'), Programmer('张辽'),
+        Manager('刘备'),
+        Programmer('诸葛亮'),
+        Manager('曹操'),
+        Salesman('荀彧'),
+        Salesman('吕布'),
+        Programmer('张辽'),
         Programmer('赵云')
     ]
     for emp in emps:
@@ -91,8 +91,7 @@ def main():
         elif isinstance(emp, Salesman):
             emp.sales = float(input('请输入%s本月销售额: ' % emp.name))
         # 同样是接收get_salary这个消息但是不同的员工表现出了不同的行为(多态)
-        print('%s本月工资为: ￥%s元' %
-              (emp.name, emp.get_salary()))
+        print('%s本月工资为: ￥%s元' % (emp.name, emp.get_salary()))
 
 
 if __name__ == '__main__':
