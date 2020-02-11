@@ -1,3 +1,6 @@
+"""
+奥特曼打怪兽
+"""
 from abc import ABCMeta, abstractmethod
 from random import randint, randrange
 
@@ -153,7 +156,7 @@ def main():
     while u.alive and is_any_alive(ms):
         print('========第%02d回合========' % fight_round)
         m = select_alive_one(ms)  # 选中一只小怪兽
-        skill = randint(1, 10)   # 通过随机数选择使用哪种技能
+        skill = randint(1, 10)  # 通过随机数选择使用哪种技能
         if skill <= 6:  # 60%的概率使用普通攻击
             print('%s使用普通攻击打了%s.' % (u.name, m.name))
             u.attack(m)
