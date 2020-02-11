@@ -1,5 +1,5 @@
 """
-静态方法
+静态方法&类方法
 """
 
 from math import sqrt
