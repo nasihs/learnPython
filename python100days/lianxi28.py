@@ -1,5 +1,5 @@
 """
-简单的GUI应用
+简单GUI应用
 """
 
 import tkinter
