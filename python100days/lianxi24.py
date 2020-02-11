@@ -4,6 +4,7 @@
 
 
 class Person(object):
+    """人"""
     def __init__(self, name, age):
         self._name = name
         self._age = age
@@ -32,7 +33,6 @@ class Person(object):
 
 class Student(Person):
     """学生"""
-
     def __init__(self, name, age, grade):
         super().__init__(name, age)
         self._grade = grade
