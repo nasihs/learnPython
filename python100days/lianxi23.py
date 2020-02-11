@@ -1,5 +1,6 @@
 """
-在类中定义类方法
+类方法
+数字时钟
 """
 
 from time import time, localtime, sleep
@@ -7,7 +8,6 @@ from time import time, localtime, sleep
 
 class Clock(object):
     """数字时钟"""
-
     def __init__(self, hour=0, minute=0, second=0):
         self._hour = hour
         self._minute = minute
