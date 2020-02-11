@@ -1,9 +1,12 @@
+"""
+扑克游戏
+"""
+
 import random
 
 
 class Card(object):
     """一张牌"""
-
     def __init__(self, suite, face):
         self._suite = suite
         self._face = face
@@ -35,11 +38,10 @@ class Card(object):
 
 class Poker(object):
     """一副牌"""
-
     def __init__(self):
-        self._cards = [Card(suite, face)
-                       for suite in '♠♥♣♦'
-                       for face in range(1, 14)]
+        self._cards = [
+            Card(suite, face) for suite in '♠♥♣♦' for face in range(1, 14)
+        ]
         self._current = 0
 
     @property
@@ -66,7 +68,6 @@ class Poker(object):
 
 class Player(object):
     """玩家"""
-
     def __init__(self, name):
         self._name = name
         self._cards_on_hand = []
