@@ -1,3 +1,4 @@
+"""使用turtle绘图"""
 from turtle import *
 
 
