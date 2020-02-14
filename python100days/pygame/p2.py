@@ -1,3 +1,7 @@
+"""
+大球吃小球
+"""
+
 from enum import Enum, unique
 from math import sqrt
 from random import randint
