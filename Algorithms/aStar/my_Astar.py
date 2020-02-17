@@ -42,20 +42,19 @@ class Node(object):
     def parent(self, value):
         parent_node[self._coord] = value
 
-    #def is_border(self):
+    # def is_border(self):
 
-    #def is_obstacle(self):
+    # def is_obstacle(self):
 
     # def is_in_open(self):
 
-
-    def calc_g(self, another):
+    def g_score(self, another):
         return abs(self._x - another.x) + abs(self._y - another.y)
 
-    def calc_h(self, another):
+    def h_score(self, another):
         return sqrt((self._x - another.x)**2 + (self._y - another.y)**2)
 
-    def calc_f(self, another):
+    def f_score(self, another):
         return another.get_g(another) + another.get_h(another)
 
 
@@ -68,8 +67,6 @@ def main():
     print('the parent of n2 is:', n2.parent)
     print('the coordinates of n2 is:', n2.coord)
     print('the x coordinates of n2 is:', n2.coord[0])
-    
-
 
 
 if __name__ == '__main__':
