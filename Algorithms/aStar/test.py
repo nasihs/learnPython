@@ -1,6 +1,9 @@
 from heapq import heappop, heappush
 
-a = [2, 4, 6, 0, 3, 1]
-print(a)
-heappop(a)
-print(a)
+a = [1, 2, 3]
+b = [4, 5, 6, 7]
+c = 4
+if c in b:
+    print('c is in b')
+else:
+    print('c is in a or b')

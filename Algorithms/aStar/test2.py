@@ -13,8 +13,8 @@ BORDER = [(x, 0) for x in range(8)] + [(x, 7) for x in range(8)] + [
 DIRECTIONS = ((-1, 1), (0, 1), (1, 1), (-1, 0), (1, 0), (-1, -1), (1, 0), (1,
                                                                            -1))
 parent_node = {}
-g_score = {}
-f_score = {}
+g_list = {}
+f_list = {}
 path = []
 
 
@@ -45,27 +45,27 @@ class Node(object):
 
     @parent.setter
     def parent(self, value):
-        parent_node[self._coord] = value
+        parent_node[self._coord] = value.coord
 
     # def is_in_open(self):
-    """ def search_adjacent_node(self):
-        for direction in DIRECTIONS:
-            self._x """
     @property
     def g_score(self):
-        return g_score[self.coord]
+        return g_list[self._coord]
 
     @g_score.setter
     def g_score(self, value):
-        g_score[self.coord] = value.coord
+        #g_list[self._coord] = g_list[self.parent] + dist_between(self._coord, self.parent)
+        g_list[self._coord] = value
 
+    """(6, 3)终点坐标 用global申明还是报undefined"""
     @property
     def h_score(self):
-        return sqrt((self._x - goal_node.x)**2 + (self._y - goal_node.y)**2)
+        return sqrt((self._x - 6)**2 + (self._y - 3)**2)
 
     @property
     def f_score(self):
-        return self.g_score + self.h_score
+        f_list[self._coord] = self.g_score + self.h_score
+        return f_list[self._coord]
 
 
 def dist_between(a, b):
@@ -76,3 +76,23 @@ def a_star(start, goal):
     start_node = Node(start)
     goal_node = Node(goal)
     start_node.g_score = 0
+    # open_list.add(current_node)
+    heappush(open_list, start_node.coord)
+    # current_node = start_node.coord
+
+
+def main():
+    start = (1, 3)
+    goal = (6, 3)
+    start_node = Node(start)
+    start_node.g_score = 0
+    print(g_list)
+    print(start_node.f_score)
+    n1 = Node((2, 4))
+    n1.parent = start_node
+    n1.g_score = 
+
+
+
+if __name__ == '__main__':
+    main()
