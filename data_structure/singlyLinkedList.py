@@ -54,11 +54,11 @@ class SinglyLinkedList(object):
     def insert(self, elem, pos):
         cur = self.__head
         prev = None
-        if pos < 0 or pos > self.length() - 1:
+        if pos < 0 or pos > self.length():
             print('pos is out of range.')
         elif pos == 0:
             self.add(elem)
-        elif pos == self.length() - 1:
+        elif pos == self.length():
             self.append(elem)
         else:
             i = 0
@@ -77,7 +77,7 @@ class SinglyLinkedList(object):
                 return True
             cur = cur.next
         return False
-        
+
     def remove(self, pos):
         # 删除指定位置
         cur = self.__head
@@ -97,19 +97,22 @@ class SinglyLinkedList(object):
 
 if __name__ == '__main__':
     list = SinglyLinkedList()
-    print(list.is_empty())
+    print('是否为空:', list.is_empty())  # True
     list.add(1)
     list.add(2)
     list.add(3)
-    list.travel()
-    # print(list.length())
+    list.travel()  # 3 2 1
+    print('是否为空:{0}'.format(list.is_empty()))  # False
+    print('长度:{0}'.format(list.length()))  # 3
     list.append(0)
-    list.travel()
-    # print(list.length())
-    list.insert(33, 2)
-    list.travel()
-    # print(list.length())
-    print(list.search(3))
-    print(list.search(22))
+    list.travel()  # 3 2 1 0
+    list.insert(33, 3)
+    list.travel()  # 3 2 1 33 0
+    print(list.search(33))  # True
+    print(list.search(22))  # False
     list.remove(2)
-    list.travel()
+    list.travel()  # 3 2 33 0
+    list.insert(88, 8)  # pos is out of range
+    list.append(66)
+    list.travel()  # 3 2 33 0 66
+    print('长度:{0}'.format(list.length()))  # 5
